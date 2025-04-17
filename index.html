@@ -1,108 +1,294 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Professional UK Transcription & Copy-Typing Services at TranscribeNOW. Accurate, fast, and confidential transcription solutions across the globe.">
-  <title>UK Transcription Services | Fast Return</title>
-  <link rel="canonical" href="https://transcribenow.co.uk/">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    if (window.location.hostname === "transcribenow.github.io") {
-      window.location.replace(
-        "https://transcribenow.co.uk" +
-        window.location.pathname +
-        window.location.search +
-        window.location.hash
-      );
-    }
-  </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Same Day English Transcription | TranscribeNOW</title>
+    <link rel="canonical" href="https://transcribenow.co.uk/">
+    <script>
+        if (window.location.hostname === "transcribenow.github.io") {
+          window.location.replace(
+            "https://transcribenow.co.uk" +
+            window.location.pathname +
+            window.location.search +
+            window.location.hash
+          );
+        }
+      </script>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f5f7fa;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        header {
+            background-color: #003366;
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+        header h1 {
+            font-size: 3.5rem;
+            margin: 0;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+        header p {
+            font-size: 1.2rem;
+            margin-top: 10px;
+        }
+        section {
+            padding: 40px 20px;
+            max-width: 1100px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.85);
+            border-radius: 8px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: #003366;
+        }
+        h3 {
+            font-size: 1.8rem;
+            margin-top: 20px;
+            color: #003366;
+        }
+        ul {
+            padding-left: 20px;
+            line-height: 1.8;
+        }
+        ul li {
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+        p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .pricing ul {
+            list-style: none;
+            padding: 0;
+        }
+        .pricing li {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+        }
+
+        /* Quote Calculator */
+        .quote-calculator {
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        }
+        .quote-calculator label {
+            font-size: 1.1rem;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 10px;
+        }
+        .quote-calculator input, .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            transition: border-color 0.3s;
+        }
+        .quote-calculator input:focus, .contact-form input:focus, .contact-form textarea:focus {
+            border-color: #003366;
+        }
+
+        .quote-calculator button {
+            background-color: #003366;
+            color: white;
+            padding: 15px 25px;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s;
+        }
+        .quote-calculator button:hover {
+            background-color: #00509e;
+        }
+
+        /* Contact Form */
+        .contact-form {
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        }
+        .contact-form h2 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+        }
+        .contact-form button {
+            background-color: #003366;
+            color: white;
+            padding: 12px 20px;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s;
+        }
+        .contact-form button:hover {
+            background-color: #00509e;
+        }
+
+        /* Checkbox Resize */
+        input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            margin-top: 5px;
+            vertical-align: middle;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.8rem;
+            }
+            header p {
+                font-size: 1rem;
+            }
+            .quote-calculator input, .contact-form input, .contact-form textarea {
+                font-size: 1rem;
+            }
+            .quote-calculator button, .contact-form button {
+                font-size: 1rem;
+                padding: 12px;
+            }
+        }
+    </style>
 </head>
-<body class="bg-gray-50 text-gray-800 font-sans">
-  <header class="bg-white shadow p-6">
-    <div class="max-w-6xl mx-auto flex justify-between items-center">
-      <h1 class="text-2xl font-bold text-blue-700">TranscribeNOW</h1>
-      <a href="#contact" class="text-blue-700 font-semibold hover:underline">Contact</a>
-    </div>
-  </header>
+<body>
 
-  <main class="max-w-4xl mx-auto px-6 py-12">
-    <!-- Hero Section -->
-    <section class="mb-12">
-      <h2 class="text-3xl font-bold mb-4 text-blue-700">UK-based Transcription Services: Accurate, Reliable, and Fast</h2>
-      <p class="text-lg">
-        <strong>Accurate UK Transcription & Copy-Typing Services:</strong>
-Boost productivity with reliable, UK-based transcription and copy-typing services from TranscribeNOW. Whether you're a business, academic, or content creator, we deliver fast, accurate results—no AI, just expert human typists. Prices start at just £0.50 per audio minute.
-    </section>
+<header>
+    <h1>Welcome to TranscribeNow</h1>
+    <p>Your reliable source for transcription and copy-typing services</p>
+</header>
 
-    <!-- Transcription Services -->
-    <section class="mb-12">
-      <h3 class="text-2xl font-semibold text-blue-700 mb-4">Transcription Services Tailored for You</h3>
-      <ul class="list-disc pl-6 space-y-3">
+<section class="intro-section">
+    <h2>UK-based Transcription Services: Accurate, Reliable, and Fast</h2>
+    <p><strong>Accurate UK Transcription & Copy-Typing Services:</strong> Boost productivity with reliable, UK-based transcription and copy-typing services from TranscribeNOW. Whether you're a business, academic, or content creator, we deliver fast, accurate results—no AI, just expert human typists. Prices start at just £0.50 per audio minute.</p>
+
+    <h2>Transcription Services Tailored for You</h2>
+    <ul>
         <li><strong>Audio & Video Transcription Services:</strong> We transform your recordings into professionally formatted, ready-to-use text. Whether you're recording interviews, podcasts, or business meetings, our audio and video transcription services ensure every detail is captured clearly and accurately.</li>
         <li><strong>Podcast, Webinar, & Conference Transcription:</strong> Popular with content creators, our transcription services make your audio content accessible for blogs, captions, SEO, or accessibility. We also cater to professionals who need detailed written records of remote meetings or live events.</li>
         <li><strong>Legal, Academic & Business Transcription:</strong> With extensive experience in various industries, we offer tailored transcription services for legal, academic, and business sectors. Whether it's case notes or meeting minutes, we've got it covered.</li>
         <li><strong>Copy Typing & Document Conversion:</strong> Our copy typing services are perfect for converting handwritten documents, typed manuscripts, or PDF files into editable formats.</li>
-      </ul>
-    </section>
+    </ul>
 
-    <!-- Why Choose Us -->
-    <section class="mb-12 bg-white p-6 rounded-xl shadow">
-      <h3 class="text-xl font-bold text-blue-600 mb-4">Why Choose Our UK Transcription Services?</h3>
-      <ul class="list-disc pl-6 space-y-3">
-        <li>Accuracy & Attention to Detail: Every transcript is manually reviewed to ensure clarity and consistency.</li>
-        <li>Fast Turnaround: Projects completed on the same day <strong>guaranteed</strong> up to two hours of audio or 50,000 words.</li>
-        <li>Confidentiality: We ensure secure file handling and offer NDAs where necessary.</li>
-        <li>Fair & Flexible Pricing: Our rates are clear, negotiable, and based on audio minute or word count.</li>
-        <li>Manual Transcription by Real Humans: We don’t use AI—every project is handled by experienced transcriptionists.</li>
-      </ul>
-    </section>
+    <h2>Why Choose Our UK Transcription Services?</h2>
+    <ul>
+        <li><strong>Accuracy & Attention to Detail:</strong> Every transcript is manually reviewed to ensure clarity and consistency.</li>
+        <li><strong>Fast Turnaround:</strong> Projects completed on the same day guaranteed up to two hours of audio or 50,000 words.</li>
+        <li><strong>Confidentiality:</strong> We ensure secure file handling and offer NDAs where necessary.</li>
+        <li><strong>Fair & Flexible Pricing:</strong> Our rates are clear, negotiable, and based on audio minute or word count.</li>
+        <li><strong>Manual Transcription by Real Humans:</strong> We don’t use AI—every project is handled by experienced transcriptionists.</li>
+    </ul>
 
-    <!-- Supporting Businesses -->
-    <section class="mb-12">
-      <h3 class="text-2xl font-semibold text-blue-700 mb-4">Worldwide English Transcription Service</h3>
-      <p class="mb-2">
-        We proudly serve clients from all over the world, providing expert transcription for podcasts, webinars, academic research, and more. From the U.K. and U.S.A. to Australia, we're here to assist with your transcription needs.
-      </p>
-    </section>
+    <h2>Worldwide English Transcription Service</h2>
+    <p>We proudly serve clients from all over the world, providing expert transcription for podcasts, webinars, academic research, and more. From the U.K. and U.S.A. to Australia, we're here to assist with your transcription needs.</p>
 
-    <!-- Types of Transcription -->
-    <section class="mb-12 bg-white p-6 rounded-xl shadow">
-      <h3 class="text-xl font-bold text-blue-600 mb-4">Types of Transcription We Offer</h3>
-      <ul class="list-disc pl-6 space-y-3">
+    <h2>Types of Transcription We Offer</h2>
+    <ul>
         <li><strong>Verbatim Transcription:</strong> Captures every word and sound, ideal for detailed records such as documentaries or legal transcripts.</li>
         <li><strong>Clean Verbatim:</strong> Removes filler words while retaining the speaker's exact message. Ideal for legal or formal contexts.</li>
         <li><strong>Non-Verbatim:</strong> Focuses on the key message by removing filler words and unnecessary elements, often the best choice for subtitling and perfect for business or general communication.</li>
         <li><strong>Intelligent Edited Non-Verbatim:</strong> Offers a polished, readable transcript with grammatical corrections and omits irrelevant content. Ideal for corporate communications.</li>
-      </ul>
-      <p class="mt-6">
-        <strong>Note:</strong> We offer traditional timestamping, whereby a timestamp is inserted at the beginning of a new line each time the speaker changes. Additionally, we provide fixed or approximate interval timestamping, with markers placed either precisely every 30, 60, or 120 seconds, or approximately at those intervals, aligned with the nearest complete sentence or paragraph. You may also opt for no timestamps if you would like to keep costs as low as possible. If you are unsure what type of transcript will best suit your needs, we will be more than happy to help you decide.
-      </p>
-    </section>
+    </ul>
+    <p><strong>Note:</strong> We offer traditional timestamping, whereby a timestamp is inserted at the beginning of a new line each time the speaker changes. Additionally, we provide fixed or approximate interval timestamping, with markers placed either precisely every 30, 60, or 120 seconds, or approximately at those intervals, aligned with the nearest complete sentence or paragraph. You may also opt for no timestamps if you would like to keep costs as low as possible. If you are unsure what type of transcript will best suit your needs, we will be more than happy to help you decide.</p>
 
-    <!-- Meet Sophie -->
-    <section class="mb-12">
-      <h3 class="text-2xl font-semibold text-blue-700 mb-4">Meet Sophie – World-Class Typist & Transcriptionist</h3>
-      <p class="mb-4">
-        Our standout transcriptionis is Sophie, a UK-based professional typist with an extraordinary skill set. Sophie holds a personal record of 220 words per minute and was formerly ranked number 7 in the world for typing speed, having achieved a personal record of 220 words per minute over sixty seconds. With extensive freelance transcription experience, she combines rapid typing ability with a meticulous eye for detail. Please feel free to reach out for a demonstration of her typing (coming soon!).
-      </p>
-      <p>
-        Her exceptional speed means faster return times for your projects, without compromising accuracy. Whether you need fast return on bulk audio transcription or urgent interview typing services, Sophie’s elite typing ability ensures your content is delivered promptly and precisely.
-      </p>
-    </section>
+    <h2>Meet Sophie – World-Class Typist & Transcriptionist</h2>
+    <p>Our standout transcriptionist is Sophie, a UK-based professional typist with an extraordinary skill set. Sophie holds a personal record of 220 words per minute and was formerly ranked number 7 in the world for typing speed, having achieved a personal record of 220 words per minute over sixty seconds. With extensive freelance transcription experience, she combines rapid typing ability with a meticulous eye for detail. Please feel free to reach out for a demonstration of her typing (coming soon!).</p>
 
-    <!-- Contact Section -->
-    <section id="contact" class="bg-blue-100 p-6 rounded-xl shadow">
-      <h3 class="text-xl font-bold text-blue-700 mb-4">Get in Touch</h3>
-      <p class="mb-4">
-        Looking for reliable transcription services? Contact us for fast, accurate, and reliable audio-to-text, typing, and transcription services at contact@transcribenow.co.uk
-      </p>
-      <a href="mailto:contact@transcribenow.co.uk" class="inline-block bg-blue-700 text-white px-6 py-3 rounded hover:bg-blue-800 transition">Contact Us</a>
-    </section>
-  </main>
+    <p>Her exceptional speed means faster return times for your projects, without compromising accuracy. If you need something typed or transcribed quickly, Sophie is the perfect fit!</p>
+</section>
 
-  <footer class="bg-gray-100 text-center text-sm p-4 mt-12">
-    &copy; 2025 TranscribeNOW | UK Transcription Services
-  </footer>
+<section class="pricing">
+    <h2>Pricing</h2>
+    <div class="pricing">
+        <ul>
+            <li>Transcription: £0.50 per audio minute</li>
+            <li>Copy-typing: £8 per 1000 words</li>
+            <li>Additional speaker surcharge: +£0.15 per minute</li>
+            <li>Traditional timestamping: +£0.20 per minute</li>
+        </ul>
+    </div>
+</section>
+
+<section class="quote-calculator">
+    <h3>Get an Instant Quote for Transcription Services</h3>
+    <form>
+        <label for="audio_minutes">Audio Duration (in minutes):</label>
+        <input type="number" id="audio_minutes" name="audio_minutes" placeholder="Enter minutes" required>
+
+        <label for="num_speakers">Amount of Speakers:</label>
+        <input type="number" id="num_speakers" name="num_speakers" placeholder="Enter number of speakers" required>
+
+        <label for="with_timestamps">Do you need timestamps?</label>
+        <input type="checkbox" id="with_timestamps" name="with_timestamps" value="yes">
+
+        <button type="button" onclick="calculateQuote()">Get Quote</button>
+
+        <p id="quote_result">Your quote will appear here.</p>
+    </form>
+</section>
+
+<section class="contact-form">
+    <h2>Contact Us</h2>
+    <form action="https://formspree.io/f/xwpldeab" method="POST">
+        <label for="name">Your Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Your Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="message">Your Message:</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+
+        <button type="submit">Send Message</button>
+    </form>
+</section>
+
+<script>
+    function calculateQuote() {
+        let audioMinutes = document.getElementById("audio_minutes").value;
+        let numSpeakers = document.getElementById("num_speakers").value;
+        let withTimestamps = document.getElementById("with_timestamps").checked;
+
+        let baseRate = 0.50;
+        let additionalSpeakerRate = 0.15;
+        let timestampRate = 0.20;
+
+        let totalCost = audioMinutes * baseRate;
+
+        if (numSpeakers > 1) {
+            totalCost += (numSpeakers - 1) * audioMinutes * additionalSpeakerRate;
+        }
+
+        if (withTimestamps) {
+            totalCost += audioMinutes * timestampRate;
+        }
+
+        document.getElementById("quote_result").innerText = "Total Quote: £" + totalCost.toFixed(2);
+    }
+</script>
+
 </body>
 </html>
