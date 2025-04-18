@@ -1,0 +1,182 @@
+/* styles.css — your original styles unchanged */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1a1a2e;
+    color: #e6e6e6;
+    line-height: 1.6;
+}
+
+header {
+    position: relative;
+    background-image: url('images/mechkeyb.png');
+    background-size: cover;
+    background-position: center;
+    height: 350px;
+    color: white;
+    text-align: center;
+    padding: 40px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.title-container {
+    position: relative;
+    text-align: center;
+    z-index: 1;
+}
+
+.title-container h1 {
+    font-size: 48px;
+    margin-bottom: 10px;
+    color: #ffffff;
+}
+
+.title-container p {
+    font-size: 26px;
+    color: #ffffff;
+}
+
+header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    filter: blur(5px);
+    z-index: 0;
+}
+
+.container {
+    max-width: 1000px;
+    margin: auto;
+    padding: 40px 20px;
+    font-size: 16px;
+}
+
+.container h2 {
+    font-size: 28px;
+    color: #d4a5f9;
+    margin-bottom: 12px;
+}
+
+.container p,
+.container li {
+    font-size: 16px;
+    color: #e6e6e6;
+    font-family: Arial, sans-serif;
+    margin-bottom: 10px;
+}
+
+.container ul {
+    list-style: disc;
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+.price-calculator,
+.contact-form {
+    max-width: 700px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #222244;
+    border-radius: 10px;
+    font-family: Arial, sans-serif;
+}
+
+.price-calculator h2,
+.contact-form h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #d4a5f9;
+}
+
+.price-calculator label,
+.contact-form label {
+    font-size: 16px;
+    color: #e6e6e6;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.price-calculator input,
+.contact-form input,
+.contact-form textarea,
+.price-calculator select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #444;
+    margin-bottom: 20px;
+    background-color: #333;
+    color: #fff;
+}
+
+.contact-form button {
+    background-color: #d4a5f9;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.contact-form button:hover {
+    background-color: #a82dff;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #222244;
+    color: #e6e6e6;
+}
+
+/* New styles for the sticky navigation bar */
+html {
+    scroll-behavior: smooth;
+  }
+  
+  .main-nav {
+    position: sticky;
+    top: 0;
+    background-color: #222244; /* your existing nav bg */
+    z-index: 999;
+  }
+  
+  .main-nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    margin: 0;
+    padding: 10px 0;
+  }
+  
+  .main-nav li {
+    margin: 0 15px;
+  }
+  
+  .main-nav a {
+    color: #d4a5f9;       /* match your accent */
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .main-nav a:hover {
+    color: #ffffff;
+  }
+
+  html {
+    /* makes all scroll‑to‑anchor jumps sit 60px below the top of the viewport */
+    scroll-padding-top: 60px;
+  }
