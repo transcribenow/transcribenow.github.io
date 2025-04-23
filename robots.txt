@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+
+Sitemap: https://transcribenow.co.uk/sitemap.xml

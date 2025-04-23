@@ -1,0 +1,71 @@
+<!--Contact Form Page-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact | TranscribeNow</title>
+  <link rel="canonical" href="https://transcribenow.co.uk/quote">
+  <link rel="icon" href="/favicon.png" type="image/png">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+  <!--Navigation Bar-->
+  <nav class="main-nav">
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    <ul id="nav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/why-us/">Why Us?</a></li>
+      <li><a href="/transcript-types/">Transcript Types</a></li>
+      <li><a href="/quote/">Instant Quote</a></li>
+      <li><a href="/contact/">Contact Us</a></li>
+      <li><a href="/terms-of-service/">Terms of Service</a></li>
+    </ul>
+  </nav>
+
+  <header>
+    <div class="title-container">
+      <h1 class="visually-hidden">Get in Touch for Global Transcription and Typing Services</h2>
+      <p class="visually-hidden">Have a question about our services? Whether you're based in the UK, USA, Australia, or anywhere else in the world, we're here to help. Contact us to discuss your project and get expert transcription or typing support from a trusted, English-native team.</p>
+    </div>
+  </header>
+
+  <div class="container">
+    <!-- UK-based Transcription Services section -->
+    <section class="fancy-box">
+      <h2>Get in Touch</h2>
+      <p>Please use the contact form below to reach out to our team with any inquiries, questions, or to place an order. If you are requesting a transcript or typed document, kindly provide as many details as possible to help us process your order efficiently. Unsure about what information to include? Use our instant quote calculator for guidance. We are also happy to tailor the final product to meet your specific needs—just let us know how we can assist you.<br>
+
+        Note: We typically respond within 1-2 hours, Monday to Friday, between 9am - 8pm BST. You can also email us directly at contact@transcribenow.co.uk</p>
+    </section>
+    </div>
+
+  <div class="container">
+    <section class="contact-form">
+      <h2>Get in Touch</h2>
+      <form action="https://formspree.io/f/xwpldeab" method="POST">
+        <label for="name">Name:</label>
+        <input type="text" name="name" id="name" required />
+
+        <label for="email">Email:</label>
+        <input type="email" name="_replyto" id="email" required />
+
+        <label for="message">Message:</label>
+        <textarea name="message" id="message" rows="6" required></textarea>
+
+        <button class="send-msg-button" type="submit">Send Message</button>
+      </form>
+    </section>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 TranscribeNowUK</p>
+  </footer>
+  <script>
+    function toggleMenu() {
+      document.getElementById('nav-links').classList.toggle('active');
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,261 @@
+<!--Quote Calc-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Quote Calculator | TranscribeNow</title>
+  <link rel="canonical" href="https://transcribenow.co.uk/quote">
+  <link rel="icon" href="/favicon.png" type="image/png">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+  <!--Navigation Bar-->
+  <nav class="main-nav">
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    <ul id="nav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/why-us/">Why Us?</a></li>
+      <li><a href="/transcript-types/">Transcript Types</a></li>
+      <li><a href="/quote/">Instant Quote</a></li>
+      <li><a href="/contact/">Contact Us</a></li>
+      <li><a href="/terms-of-service/">Terms of Service</a></li>
+    </ul>
+  </nav>
+
+  <header>
+    <div class="title-container">
+      <h1 class="visually-hidden">Instant Quote for Worldwide Transcription and Typing Services</h1>
+      <p class="visually-hidden">Need a fast quote for transcription or copy typing? Our calculator gives you an instant estimate for services available worldwide. From scanned documents and podcasts to interviews and manuscripts, we deliver accurate results — wherever you are.</p>
+    </div>
+  </header>
+
+<!--The quote calculator-->
+<div class="container">
+  <section class="price-calculator">
+    <h2>Get an Instant Quote</h2>
+
+    <label for="currency">Currency:</label>
+    <select id="currency">
+      <option value="GBP">GBP (£)</option>
+      <option value="USD">USD ($)</option>
+      <option value="EUR">EUR (€)</option>
+      <option value="CAD">CAD (C$)</option>
+      <option value="AUD">AUD (A$)</option>
+    </select>
+
+    <label for="serviceType">Select a Service:</label>
+    <select id="serviceType" onchange="updateCalculator()">
+      <option value="transcription">Transcription</option>
+      <option value="copyTyping">Copy Typing</option>
+    </select>
+
+    <div id="transcriptionFields">
+      <label for="audioLength">Length of audio (in minutes):</label>
+      <input type="number" id="audioLength" min="0" />
+      <span id="minuteError" class="error-message"></span>
+
+      <label for="numSpeakers">Number of speakers:</label>
+      <input type="number" id="numSpeakers" min="1" value="1" />
+
+      <label for="timestampType">Timestamping option:</label>
+      <select id="timestampType" onchange="calculatePrice()">
+        <option value="none">None</option>
+        <option value="traditional">Traditional timestamps</option>
+        <option value="interval60">Interval: 60 seconds</option>
+        <option value="approx60">Approximate: 60 seconds</option>
+        <option value="interval30">Interval: 30 seconds</option>
+        <option value="approx30">Approximate: 30 seconds</option>
+        <option value="subtitles">Subtitle/Timecode</option>
+      </select>
+    </div>
+
+    <div id="copyTypingFields" style="display: none;">
+      <label for="wordCount">Word count:</label>
+      <input type="number" id="wordCount" min="0" />
+
+      <label for="legibility">Legibility:</label>
+      <select id="legibility" onchange="calculatePrice()">
+        <option value="easy">Easy to read</option>
+        <option value="medium">Moderate</option>
+        <option value="hard">Difficult to read</option>
+      </select>
+
+      <label for="formattingRequired">Formatting Required? 
+        <span title="Minimal formatting (e.g. headings, bold text, occasional images, bullet points etc) is included. Moderate formatting (e.g. contistent tables and/or images) adds £0.50 per 1,000 words. Extensive formatting (e.g. lots of tables, complex layouts) adds £1.50 per 1,000 words.">ℹ️</span>
+      </label>
+      <select id="formattingRequired" onchange="calculatePrice()">
+        <option value="minimal">Minimal formatting</option>
+        <option value="moderate">Moderate formatting</option>
+        <option value="extensive">Extensive formatting</option>
+      </select>
+    </div>
+
+    <label for="turnaroundTime">Turnaround Time:</label>
+    <select id="turnaroundTime" onchange="calculatePrice()">
+      <option value="48">48 hours (standard)</option>
+      <option value="24">24 hours (rush)</option>
+    </select>
+
+    <h3>Total Price: <span id="totalPrice">£0.00</span></h3>
+    <p id="priceBreakdown"></p>
+
+    <!-- Button inside the calculator box -->
+    <div class="place-order-button-container">
+      <a href="/contact/index.html" class="place-order-button">Place Order</a>
+    </div>
+
+  </section>
+</div>
+
+<!-- Price Quote Calculation Script -->
+<script>
+  const currencyRates = {
+    GBP: 1,
+    USD: 1.25,
+    EUR: 1.15,
+    CAD: 1.35,
+    AUD: 1.75,
+  };
+
+  const timestampPrices = {
+    GBP: { none: 0, traditional: 0.15, interval60: 0.15, approx60: 0.15, interval30: 0.20, approx30: 0.20, subtitles: 0.25 },
+    USD: { none: 0, traditional: 0.19, interval60: 0.19, approx60: 0.19, interval30: 0.25, approx30: 0.25, subtitles: 0.31 },
+    EUR: { none: 0, traditional: 0.17, interval60: 0.17, approx60: 0.17, interval30: 0.23, approx30: 0.23, subtitles: 0.29 },
+    CAD: { none: 0, traditional: 0.20, interval60: 0.20, approx60: 0.20, interval30: 0.27, approx30: 0.27, subtitles: 0.34 },
+    AUD: { none: 0, traditional: 0.26, interval60: 0.26, approx60: 0.26, interval30: 0.35, approx30: 0.35, subtitles: 0.44 }
+  };
+
+  function getCurrencySymbol(currency) {
+    switch (currency) {
+      case 'GBP': return '£';
+      case 'USD': return '$';
+      case 'EUR': return '€';
+      case 'CAD': return 'C$';
+      case 'AUD': return 'A$';
+      default: return '';
+    }
+  }
+
+  function updateCalculator() {
+    const service = document.getElementById('serviceType').value;
+    document.getElementById('transcriptionFields').style.display = service === 'transcription' ? 'block' : 'none';
+    document.getElementById('copyTypingFields').style.display = service === 'copyTyping' ? 'block' : 'none';
+
+    if (service === 'copyTyping') {
+      document.getElementById('wordCount').value = 1000;
+      document.getElementById('legibility').value = 'easy';
+    }
+
+    calculatePrice();
+  }
+
+  function updateTimestampPrices() {
+    const selectedCurrency = document.getElementById('currency').value;
+    const timestampType = document.getElementById('timestampType');
+
+    for (let option of timestampType.options) {
+      const optionValue = option.value;
+      const basePrice = timestampPrices[selectedCurrency][optionValue];
+      const convertedPrice = basePrice * currencyRates[selectedCurrency];
+      let originalText = option.textContent.split(' (')[0];
+      option.textContent = `${originalText} (${getCurrencySymbol(selectedCurrency)}${convertedPrice.toFixed(2)}/min)`;
+    }
+  }
+
+  function calculatePrice() {
+  const service = document.getElementById('serviceType').value;
+  const selectedCurrency = document.getElementById('currency').value;
+  const turnaround = document.getElementById('turnaroundTime').value;
+  const errorMsg = document.getElementById('minuteError');
+  let total = 0;
+  let breakdown = [];
+
+  if (service === 'transcription') {
+    const minutesInput = document.getElementById('audioLength');
+    let minutes = parseFloat(minutesInput.value);
+    const speakers = parseInt(document.getElementById('numSpeakers').value) || 1;
+    const tsType = document.getElementById('timestampType').value;
+
+    if (!minutesInput.value.trim()) {
+      minutes = 30;
+      minutesInput.value = 30;
+      errorMsg.textContent = "";
+    }
+
+    if (isNaN(minutes) || minutes <= 0 || minutes > 7200) {
+      errorMsg.textContent = "Please enter a valid number of minutes up to 7200";
+      document.getElementById('totalPrice').textContent = '';
+      document.getElementById('priceBreakdown').textContent = '';
+      return;
+    } else {
+      errorMsg.textContent = "";
+    }
+
+    const base = 0.50;
+    let speakerCostPerMin = 0;
+    for (let i = 2; i <= speakers; i++) {
+      if (i <= 3) speakerCostPerMin += 0.15;
+      else if (i <= 6) speakerCostPerMin += 0.40;
+      else speakerCostPerMin += 1.00;
+    }
+
+    const tsRate = timestampPrices[selectedCurrency][tsType] || 0;
+    const rushPerMin = (turnaround === '24') ? 0.20 : 0; // rush charge for transcription if 24-hour turnaround is selected
+
+    // Apply the currency rate to each of these prices
+    total = minutes * (base * currencyRates[selectedCurrency] + speakerCostPerMin * currencyRates[selectedCurrency] + tsRate * currencyRates[selectedCurrency] + rushPerMin * currencyRates[selectedCurrency]);
+
+    breakdown.push(`Base: ${getCurrencySymbol(selectedCurrency)}${(base * currencyRates[selectedCurrency]).toFixed(2)}/min`);
+    if (speakerCostPerMin) breakdown.push(`Speakers: ${getCurrencySymbol(selectedCurrency)}${(speakerCostPerMin * currencyRates[selectedCurrency]).toFixed(2)}/min`);
+    if (tsRate) breakdown.push(`Timestamps: ${getCurrencySymbol(selectedCurrency)}${(tsRate * currencyRates[selectedCurrency]).toFixed(2)}/min`);
+    if (rushPerMin) breakdown.push(`Rush: ${getCurrencySymbol(selectedCurrency)}${(rushPerMin * currencyRates[selectedCurrency]).toFixed(2)}/min`);
+  } else {
+    const words = parseInt(document.getElementById('wordCount').value) || 0;
+    const leg = document.getElementById('legibility').value;
+    const formatting = document.getElementById('formattingRequired')?.value || 'minimal';
+
+    let ratePerThousand = 8;
+    if (leg === 'medium') ratePerThousand = 10;
+    if (leg === 'hard') ratePerThousand = 15;
+
+    const rushChargePerThousand = (turnaround === '24') ? 2 : 0;
+
+    let formattingChargePerThousand = 0;
+    if (formatting === 'moderate') formattingChargePerThousand = 0.5;
+    if (formatting === 'extensive') formattingChargePerThousand = 1.5;
+
+    const totalRatePerThousand = ratePerThousand + rushChargePerThousand + formattingChargePerThousand;
+    const convertedRate = totalRatePerThousand * currencyRates[selectedCurrency];
+    total = (words / 1000) * convertedRate;
+
+    breakdown.push(`Base rate: ${getCurrencySymbol(selectedCurrency)}${(ratePerThousand * currencyRates[selectedCurrency]).toFixed(2)}/1000 words`);
+    if (formattingChargePerThousand) breakdown.push(`Formatting: ${getCurrencySymbol(selectedCurrency)}${(formattingChargePerThousand * currencyRates[selectedCurrency]).toFixed(2)}/1000 words`);
+    if (rushChargePerThousand) breakdown.push(`Rush: ${getCurrencySymbol(selectedCurrency)}${(rushChargePerThousand * currencyRates[selectedCurrency]).toFixed(2)}/1000 words`);
+  }
+
+  document.getElementById('totalPrice').textContent = `${getCurrencySymbol(selectedCurrency)}${total.toFixed(2)}`;
+  document.getElementById('priceBreakdown').textContent = breakdown.join(' | ');
+}
+
+  document.getElementById('currency').addEventListener('change', () => {
+    updateTimestampPrices();
+    calculatePrice();
+  });
+
+  document.getElementById('audioLength').addEventListener('input', calculatePrice);
+  document.getElementById('numSpeakers').addEventListener('input', calculatePrice);
+  document.getElementById('wordCount').addEventListener('input', calculatePrice);
+  document.getElementById('legibility').addEventListener('change', calculatePrice);
+
+  updateCalculator();
+  updateTimestampPrices();
+</script>
+<script>
+  function toggleMenu() {
+    document.getElementById('nav-links').classList.toggle('active');
+  }
+</script>
+</body>
+</html>  
